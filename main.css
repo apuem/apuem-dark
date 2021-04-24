@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+body {
+    background-color: black;
+}
+
+p {
+    font-family: Poppins;
+}
+
+.ue-p1 {
+    font-size: 3rem;
+    color: white;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+#date {
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 1rem;
+}

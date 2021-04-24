@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+
+body {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.main-container-1932{
+    overflow-y: scroll;
+}
+
+.container-left-2321 {
+    border-right: .5px solid white;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.question-text-3203 {
+    font-size: 2.25rem;
+    font-weight: 500;
+}
+
+.answer-container-1264 {
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.answer-text-3278 {
+    font-size: 1.75rem;
+    font-weight: 500;
+}
+
+.answer-dot-2302 {
+    height: 20px;
+    width: 20px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: -10px 0 0 -10px; /* apply negative top and left margins to truly center the element */
+}
