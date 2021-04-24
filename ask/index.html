@@ -11,46 +11,76 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <!-- link CSS -->
     <link rel="stylesheet" href="main.css">
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- link JS -->
+    <script src="main.js"></script>
 </head>
 <body>
     <div class="container main-container-1932">
         <div class="row">
-          <div style="padding-right: 5rem;" class="col container-left-2321">
+          <div style="padding-right: 5rem;" class="col-md-6 container-left-2321">
             <div class="mt-5">
-                <p class="question-text-3203">Wale sind die größten Tiere der Welt. Der größte jemals gesichtete war ein Blauwal. Wann war der erste Weltkrieg?</p>
+                <p id="question-text" class="question-text-3203">Wale sind die größten Tiere der Welt. Der größte jemals gesichtete war ein Blauwal. Wann war der erste Weltkrieg?</p>
             </div>
             <div>
-                <div class="border m-3 py-3 answer-container-1264">
-                    <div class="d-flex">
-                        <div class="p-2">
-                            <p class="answer-text-3278 m-0">1234 - 2312</p>
-                        </div>
-                        <div class="p-2">
-                            <span class="answer-dot-2302"></span>
-                        </div>
-                      </div>
-                </div>
-                <div class="border container answer-container-1264">
-                    
+                <div onclick="sendAnswer(1)" class="m-3 py-3 answer-container-1264">
                     <div class="row">
-                      <div class="col-sm-8">
-                        <p class="answer-text-3278 m-0">1234 - 2312</p>
+                        <div class="col-sm-8">
+                          <p id="answer-text-1" class="answer-text-3278 m-0">1234 - 2312</p>
+                        </div>
+                        <div class="col-sm-4" style="position: relative;">
+                            <span id="dot-answer-1" class="answer-dot-2302 visually-hidden"></span>
+                        </div>
                       </div>
-                      <div class="col-sm-4 border" style="position: relative;">
-                          <span class="answer-dot-2302"></span>
+                </div>
+                <div onclick="sendAnswer(2)" class="m-3 py-3 answer-container-1264">
+                    <div class="row">
+                        <div class="col-sm-8">
+                          <p id="answer-text-2" class="answer-text-3278 m-0">Testimonials</p>
+                        </div>
+                        <div class="col-sm-4" style="position: relative;">
+                            <span id="dot-answer-2" class="answer-dot-2302 visually-hidden"></span>
+                        </div>
                       </div>
-                    </div>
                 </div>
-                <div class="border m-3 py-3 answer-container-1264">
-                    <p class="answer-text-3278 m-0">Wale sind die größten Tiere der Welt.</p>
+                <div onclick="sendAnswer(3)" class="m-3 py-3 answer-container-1264">
+                    <div class="row">
+                        <div class="col-sm-8">
+                          <p id="answer-text-3" class="answer-text-3278 m-0">1234 - 2312</p>
+                        </div>
+                        <div class="col-sm-4" style="position: relative;">
+                            <span id="dot-answer-3" class="answer-dot-2302 visually-hidden"></span>
+                        </div>
+                      </div>
                 </div>
-                <div class="border m-3 py-3 answer-container-1264">
-                    <p class="answer-text-3278 m-0">T1234 - 2312est</p>
+                <div onclick="sendAnswer(4)" class="m-3 py-3 answer-container-1264">
+                    <div class="row">
+                        <div class="col-sm-8">
+                          <p id="answer-text-4" class="answer-text-3278 m-0">1234 - 2312</p>
+                        </div>
+                        <div class="col-sm-4" style="position: relative;">
+                            <span id="dot-answer-4" class="answer-dot-2302 visually-hidden"></span>
+                        </div>
+                      </div>
                 </div>
             </div>
           </div>
-          <div class="col">
-            2 of 2
+          <div class="col-md-6">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                  <a class="nav-link link-secondary active train-navbar-2733" aria-current="page" href="#">TRAIN</a>
+                  <a class="navbar-brand link-secondary title-navbar-3293" href="#">ask.apuem</a>
+                </div>
+            </nav>
+            <div class="m-5 points-container-2738">
+                <p class="points-text-2938"><span class="points-number-3231">122</span> points</p>
+                <div style="position: relative;">
+                    <span class="points-dot-3829"><p class="my-3">You</p></span>
+                    <span class="points-rectangle-2832"><p class="my-3 points-average-3423">Average</p></span>
+                    <hr class="points-line-7290 mx-auto">
+                </div>
+            </div>
           </div>
         </div>
     </div>

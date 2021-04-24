@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
 
 body {
     background-color: rgb(0, 0, 0);
@@ -11,7 +14,7 @@ body {
 }
 
 .container-left-2321 {
-    border-right: .5px solid white;
+    border-right: 0.5px solid white;
     height: 100vh;
     overflow-y: scroll;
 }
@@ -24,18 +27,81 @@ body {
 .answer-container-1264 {
     border-radius: 10px;
     padding: 1rem;
+    border: 0.5px solid rgba(255, 255, 255, 0.185);
+}
+
+.answer-container-1264:hover {
+    background-color: rgb(39, 39, 39);
 }
 
 .answer-text-3278 {
     font-size: 1.75rem;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .answer-dot-2302 {
-    height: 20px;
-    width: 20px;
-    background-color: #bbb;
+    height: 12px;
+    width: 12px;
+    background-color: rgb(56, 139, 105);
     border-radius: 50%;
     display: inline-block;
-    margin: -10px 0 0 -10px; /* apply negative top and left margins to truly center the element */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.train-navbar-2733 {
+    font-weight: 300;
+    color: white;
+    font-size: .8rem;
+}
+
+.title-navbar-3293 {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.points-text-2938 {
+    font-weight: 400;
+}
+
+.points-number-3231 {
+    font-weight: 500;
+}
+
+.points-line-7290 {
+    width: 100%;
+    border: 0,5px solid white;
+    opacity: 100%;
+}
+
+.points-dot-3829 {
+    height: 12px;
+    width: 12px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 38%;
+    transform: translate(-50%, -50%);
+}
+
+.points-rectangle-2832 {
+    height: 12px;
+    width: 6px;
+    background-color: rgb(255, 255, 255);
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    opacity: 45%;
+    
+}
+
+.points-average-3423 {
+    z-index: -1;
 }

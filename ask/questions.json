@@ -1,0 +1,20 @@
+[
+    {
+        "id": "0",
+        "body": "Wale sind die größten Tiere der Welt. Der größte jemals gesichtete war ein Blauwal. Wann war der erste Weltkrieg?",
+        "one": "1234 - 2312",
+        "two": "Testimonials",
+        "three": "1234 - 2312",
+        "four": "1234 - 2312",
+        "solution": "3"
+    },
+    {
+        "id": "1",
+        "body": "Mäuse sind die größten Tiere der Welt. Der größte jemals gesichtete war ein Blauwal. Wann war der erste Weltkrieg?",
+        "one": "Lorem Ipsum",
+        "two": "Testimonials",
+        "three": "1234 - 2312",
+        "four": "1234 - 2312",
+        "solution": "4"
+    }
+]
