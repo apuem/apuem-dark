@@ -1,23 +1,42 @@
+$.ajax({
+    url: "questions.json",
+    dataType: "json",
+}).done(function (result) {
+    console.log(result);
+
 function setQuestion(id) {
     $.ajax({
         url: "questions.json",
         dataType: "json",
     }).done(function (result) {
-        document.getElementById('question-text').innerHTML = result[id].body;
+        /* document.getElementById('question-text').innerHTML = result[id].body;
         document.getElementById('answer-text-1').innerHTML = result[id].one;
         document.getElementById('answer-text-2').innerHTML = result[id].two;
         document.getElementById('answer-text-3').innerHTML = result[id].three;
-        document.getElementById('answer-text-4').innerHTML = result[id].four;
+        document.getElementById('answer-text-4').innerHTML = result[id].four; */
+        $(document).ready(function(){
+            /* document.getElementById('question-text').innerHTML = result[id].body;
+            document.getElementById('answer-text-1').innerHTML = result[id].one;
+            document.getElementById('answer-text-2').innerHTML = result[id].two;
+            document.getElementById('answer-text-3').innerHTML = result[id].three;
+            document.getElementById('answer-text-4').innerHTML = result[id].four; */
+            $("#question-text").text(result[id].body);
+            $("#answer-text-1").text(result[id].one);
+            $("#answer-text-2").text(result[id].two);
+            $("#answer-text-3").text(result[id].three);
+            $("#answer-text-4").text(result[id].four);
+        });
     });
     listenForAnswers();
 }
 
 function showCorrect(id, answer) {
+    updateRapi();
     document.getElementById('answer-dot-' + answer).classList.remove('visually-hidden');
     document.getElementById('answer-container-' + answer).style.backgroundColor = 'rgb(39, 39, 39)';
     $('#answer-container-' + answer).click(function(){
         nextQuestion(id);
-      });
+    });
 }
 
 function showWrong(id, answer, solution) {
@@ -27,7 +46,7 @@ function showWrong(id, answer, solution) {
     document.getElementById('answer-dot-' + answer).style.backgroundColor = 'rgb(206, 84, 76)';
     $('#answer-container-' + solution).click(function(){
         nextQuestion(id);
-      });
+    });
 }
 
 function resetAnswerLayout() {
@@ -36,6 +55,20 @@ function resetAnswerLayout() {
         document.getElementById('answer-dot-' + i).classList.add('visually-hidden');
         document.getElementById('answer-container-' + i).style.backgroundColor = 'rgb(0, 0, 0)';
     }
+}
+
+
+function updateRapi() {
+    if (Cookies.get('rapi') == null) {
+        Cookies.set('rapi', 0);
+        console.log('Init rapi: ' + rapi);
+    }
+    var rapi = parseInt(Cookies.get('rapi')); //Right Answered Points
+    console.log('old rapi: ' + rapi);
+    rapi = rapi + 5 + 5;
+    console.log('new rapi: ' + rapi);
+    $("#rapi").text(rapi);
+    Cookies.set('rapi', rapi);
 }
     
 function correctAnswer(id, answer) {
@@ -48,7 +81,6 @@ function correctAnswer(id, answer) {
         } else {
             showWrong(id, answer, result[id].solution);
         }
-
     });
 }
 
@@ -69,11 +101,11 @@ function nextQuestion(oldId) {
     console.log(storedArray);
     Cookies.set('history',  storedArray.toString());
     console.log(Cookies.get('history'));
-    rqid = Math.floor((Math.random() * 5) + 1).toString(); // Random Question Identifier
-    if (storedArray.includes(rqid) == true) {
+    rqid = Math.floor((Math.random() * (result.length - 1)) + 1).toString(); // Random Question Identifier
+    if (storedArray.includes(rqid) == true && (result.length - 1) > storedArray.length) {
         console.log('does include ' + rqid);
         do {
-            rqid = Math.floor((Math.random() * 5) + 1).toString(); // Random Question Identifier
+            rqid = Math.floor((Math.random() * (result.length - 1)) + 1).toString(); // Random Question Identifier
             console.log('rqid changed to: ' + rqid);
           }
           while (storedArray.includes(rqid) == true);
@@ -81,8 +113,12 @@ function nextQuestion(oldId) {
     } else {
         console.log('does not include ' + rqid);
     }
+    if (result.length == storedArray.length) {
+        alert('We are sorry but it seems like you have already answered every question!');
+    }
     console.log('Send setQuestion with: ' + rqid);
     setQuestion(rqid);
+    Cookies.set('current', rqid);
 }
 
 function listenForAnswers() {
@@ -111,7 +147,14 @@ function stopListenForAnswer() {
     });
 }
 
-var rqid = Math.floor((Math.random() * 5) + 1).toString(); // Random Question Identifier;
+var rqid = Math.floor((Math.random() * (result.length - 1)) + 1).toString(); // Random Question Identifier;
+
+if (Cookies.get('current') == null) {
+    Cookies.set('current', rqid);
+    console.log('no current cookie. setting ' + rqid);
+} else {
+    rqid = Cookies.get('current');
+}
 
 if (Cookies.get('history') == null) {
     console.log("Init Test: No cookies yet");
@@ -126,5 +169,10 @@ if (Cookies.get('history') == null) {
     }
 } else {
     console.log("Init Test" + Cookies.get('history'));
-    setQuestion(rqid);
+    if ((result.length - 1) <= Cookies.get('history').split(',').length) {
+        alert('We are sorry but it seems like you have already answered every question!');
+    } else {
+        setQuestion(rqid);
+    }
 }
+}); //END 
