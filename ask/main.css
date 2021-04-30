@@ -31,7 +31,7 @@ body {
 }
 
 .answer-container-1264:hover {
-    background-color: rgb(39, 39, 39);
+    background-color: rgb(39, 39, 39) !important;
 }
 
 .answer-text-3278 {
@@ -104,4 +104,11 @@ body {
 
 .points-average-3423 {
     z-index: -1;
+}
+
+.advanced-item-2389 {
+    font-weight: 300;
+    color: white;
+    font-size: .8rem;
+    text-decoration: none;
 }

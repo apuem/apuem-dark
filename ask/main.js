@@ -9,17 +9,7 @@ function setQuestion(id) {
         url: "questions.json",
         dataType: "json",
     }).done(function (result) {
-        /* document.getElementById('question-text').innerHTML = result[id].body;
-        document.getElementById('answer-text-1').innerHTML = result[id].one;
-        document.getElementById('answer-text-2').innerHTML = result[id].two;
-        document.getElementById('answer-text-3').innerHTML = result[id].three;
-        document.getElementById('answer-text-4').innerHTML = result[id].four; */
         $(document).ready(function(){
-            /* document.getElementById('question-text').innerHTML = result[id].body;
-            document.getElementById('answer-text-1').innerHTML = result[id].one;
-            document.getElementById('answer-text-2').innerHTML = result[id].two;
-            document.getElementById('answer-text-3').innerHTML = result[id].three;
-            document.getElementById('answer-text-4').innerHTML = result[id].four; */
             $("#question-text").text(result[id].body);
             $("#answer-text-1").text(result[id].one);
             $("#answer-text-2").text(result[id].two);
@@ -28,6 +18,7 @@ function setQuestion(id) {
         });
     });
     listenForAnswers();
+    setRapi();
 }
 
 function showCorrect(id, answer) {
@@ -57,6 +48,33 @@ function resetAnswerLayout() {
     }
 }
 
+function updateRwar() {
+    if (Cookies.get('rwar') == null) {
+        Cookies.set('rwar', 0);
+        console.log('Init rwar: ' + rwar);
+    }
+    var rwar = parseInt(Cookies.get('rwar')); //Right Wrong Answered Ratio
+    if (Cookies.get('rightAmount') == null) {
+        Cookies.set('rightAmount', 0);
+        console.log('Init rightAmount: ' + rightAmount);
+    }
+    var rightAmount = parseInt(Cookies.get('rightAmount'));
+    if (Cookies.get('wrongAmount') == null) {
+        Cookies.set('wrongAmount', 0);
+        console.log('Init wrongAmount: ' + wrongAmount);
+    }
+    var wrongAmount = parseInt(Cookies.get('wrongAmount'));
+}
+
+function setRapi() {
+    if (Cookies.get('rapi') == null) {
+        Cookies.set('rapi', 0);
+        console.log('Init rapi: ' + rapi);
+    }
+    var rapi = parseInt(Cookies.get('rapi')); //Right Answered Points
+    console.log('old rapi: ' + rapi);
+    $("#rapi").text(rapi);
+}
 
 function updateRapi() {
     if (Cookies.get('rapi') == null) {
