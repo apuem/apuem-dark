@@ -23,6 +23,7 @@ function setQuestion(id) {
 
 function showCorrect(id, answer) {
     updateRapi();
+    updateRwar(1, 1);
     document.getElementById('answer-dot-' + answer).classList.remove('visually-hidden');
     document.getElementById('answer-container-' + answer).style.backgroundColor = 'rgb(39, 39, 39)';
     $('#answer-container-' + answer).click(function(){
@@ -31,6 +32,7 @@ function showCorrect(id, answer) {
 }
 
 function showWrong(id, answer, solution) {
+    updateRwar(0, 1);
     document.getElementById('answer-dot-' + solution).classList.remove('visually-hidden');
     document.getElementById('answer-container-' + solution).style.backgroundColor = 'rgb(39, 39, 39)';
     document.getElementById('answer-dot-' + answer).classList.remove('visually-hidden');
@@ -48,22 +50,33 @@ function resetAnswerLayout() {
     }
 }
 
-function updateRwar() {
-    if (Cookies.get('rwar') == null) {
+function updateRwar(rightAmountPar, answerAmountPar) {
+    /* if (Cookies.get('rwar') == null) {
         Cookies.set('rwar', 0);
         console.log('Init rwar: ' + rwar);
     }
-    var rwar = parseInt(Cookies.get('rwar')); //Right Wrong Answered Ratio
+    var rwar = parseInt(Cookies.get('rwar')); //Right Wrong Answered Ratio */
     if (Cookies.get('rightAmount') == null) {
         Cookies.set('rightAmount', 0);
         console.log('Init rightAmount: ' + rightAmount);
     }
     var rightAmount = parseInt(Cookies.get('rightAmount'));
-    if (Cookies.get('wrongAmount') == null) {
-        Cookies.set('wrongAmount', 0);
-        console.log('Init wrongAmount: ' + wrongAmount);
+    rightAmount = rightAmount + rightAmountPar;
+    Cookies.set('rightAmount', rightAmount);
+    console.log("New rightAmount: " + rightAmount);
+    if (Cookies.get('answerAmount') == null) {
+        Cookies.set('answerAmount', 0);
+        console.log('Init answerAmount: ' + answerAmount);
     }
-    var wrongAmount = parseInt(Cookies.get('wrongAmount'));
+    var answerAmount = parseInt(Cookies.get('answerAmount'));
+    answerAmount = answerAmount + answerAmountPar;
+    Cookies.set('answerAmount', answerAmount);
+    console.log("New answerAmount: " + answerAmount);
+    var rwar = (rightAmount / answerAmount) * 100;
+    console.log("New rwar: " + rwar);
+    $('#points-dot').css('left', rwar + '%');
+    var average = 50;
+    $('#average-rect').css('left', average + '%');
 }
 
 function setRapi() {
@@ -165,6 +178,12 @@ function stopListenForAnswer() {
     });
 }
 
+function toggleTrain() {
+    console.log("toggleTrain toggled");
+}
+
+console.log("%cAny changes made here can end in a misleading result!", "color: red; font-size: 1.5rem;"); 
+
 var rqid = Math.floor((Math.random() * (result.length - 1)) + 1).toString(); // Random Question Identifier;
 
 if (Cookies.get('current') == null) {
@@ -176,15 +195,16 @@ if (Cookies.get('current') == null) {
 
 if (Cookies.get('history') == null) {
     console.log("Init Test: No cookies yet");
-    var cookieConfirm = confirm("Dürfen wir Cookies nutzen?");
-    if (cookieConfirm == true) {
+    window.location.href = "consent";
+    /* var cookieConfirm = confirm("Dürfen wir Cookies nutzen?"); */
+    /* if (cookieConfirm == true) {
         var historyArray = [0];
         Cookies.set('history', historyArray.toString());
         setQuestion(rqid);
     } else {
         alert("Ohne Zustimmung ist die Webseite nicht funktionsfähig.");
         window.location.href  = "https://apuem.com";
-    }
+    } */
 } else {
     console.log("Init Test" + Cookies.get('history'));
     if ((result.length - 1) <= Cookies.get('history').split(',').length) {

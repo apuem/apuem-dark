@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
 
@@ -30,8 +29,12 @@ body {
     border: 0.5px solid rgba(255, 255, 255, 0.185);
 }
 
-.answer-container-1264:hover {
-    background-color: rgb(39, 39, 39) !important;
+@media (hover: hover){
+    
+    .answer-container-1264:hover {
+        background-color: rgb(39, 39, 39) !important;
+    }
+    
 }
 
 .answer-text-3278 {
@@ -85,7 +88,7 @@ body {
     display: inline-block;
     position: absolute;
     top: 50%;
-    left: 38%;
+    left: 0%;
     transform: translate(-50%, -50%);
 }
 
@@ -96,7 +99,7 @@ body {
     display: inline-block;
     position: absolute;
     top: 50%;
-    left: 70%;
+    left: 50%;
     transform: translate(-50%, -50%);
     opacity: 45%;
     

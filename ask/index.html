@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>apuem</title>
+    <title>ask - apuem</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
@@ -23,13 +23,13 @@
         <div class="row">
           <div style="padding-right: 5rem;" class="col-md-6 container-left-2321">
             <div class="mt-5">
-                <p id="question-text" class="question-text-3203">[Question]</p>
+                <p id="question-text" class="question-text-3203"><!-- [Question] --></p>
             </div>
             <div>
                 <div id="answer-container-1" class="m-3 py-3 answer-container-1264">
                     <div class="row">
                         <div class="col-sm-8">
-                          <p id="answer-text-1" class="answer-text-3278 m-0">[Answer 1]</p>
+                          <p id="answer-text-1" class="answer-text-3278 m-0"><!-- [Answer 1] --></p>
                         </div>
                         <div class="col-sm-4" style="position: relative;">
                             <span id="answer-dot-1" class="answer-dot-2302 visually-hidden"></span>
@@ -39,7 +39,7 @@
                 <div id="answer-container-2" class="m-3 py-3 answer-container-1264">
                     <div class="row">
                         <div class="col-sm-8">
-                          <p id="answer-text-2" class="answer-text-3278 m-0">[Answer 2]</p>
+                          <p id="answer-text-2" class="answer-text-3278 m-0"><!-- [Answer 2] --></p>
                         </div>
                         <div class="col-sm-4" style="position: relative;">
                             <span id="answer-dot-2" class="answer-dot-2302 visually-hidden"></span>
@@ -49,7 +49,7 @@
                 <div id="answer-container-3" class="m-3 py-3 answer-container-1264">
                     <div class="row">
                         <div class="col-sm-8">
-                          <p id="answer-text-3" class="answer-text-3278 m-0">[Answer 3]</p>
+                          <p id="answer-text-3" class="answer-text-3278 m-0"><!-- [Answer 3] --></p>
                         </div>
                         <div class="col-sm-4" style="position: relative;">
                             <span id="answer-dot-3" class="answer-dot-2302 visually-hidden"></span>
@@ -59,7 +59,7 @@
                 <div id="answer-container-4" class="m-3 py-3 answer-container-1264">
                     <div class="row">
                         <div class="col-sm-8">
-                          <p id="answer-text-4" class="answer-text-3278 m-0">[Answer 4]</p>
+                          <p id="answer-text-4" class="answer-text-3278 m-0"><!-- [Answer 4] --></p>
                         </div>
                         <div class="col-sm-4" style="position: relative;">
                             <span id="answer-dot-4" class="answer-dot-2302 visually-hidden"></span>
@@ -71,24 +71,27 @@
           <div class="col-md-6">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                  <a class="nav-link link-secondary active train-navbar-2733" aria-current="page" href="#">TRAIN</a>
-                  <a class="navbar-brand link-secondary title-navbar-3293" href="#">ask.apuem</a>
+                  <a class="nav-link link-secondary active train-navbar-2733" aria-current="page" onclick="toggleTrain()">TRAIN</a>
+                  <a class="navbar-brand link-secondary title-navbar-3293" href="https://ask.apuem.com">ask.apuem</a>
                 </div>
             </nav>
+            <div class="border m-3">
+              <p class="m-3">TRAIN MODE <span class="fw-bold">ACTIVE</span></p>
+            </div>
             <div class="m-5 points-container-2738">
                 <p class="points-text-2938"><span id="rapi" class="points-number-3231">0</span> points</p>
                 <div style="position: relative;">
-                    <span class="points-dot-3829"><p class="my-3">You</p></span>
-                    <span class="points-rectangle-2832"><p class="my-3 points-average-3423">Average</p></span>
+                    <span id="points-dot" class="points-dot-3829"><p class="my-3">You</p></span>
+                    <span id="average-rect" class="points-rectangle-2832"><p class="my-3 points-average-3423">Average</p></span>
                     <hr class="points-line-7290 mx-auto">
                 </div>
             </div>
             <div class="advanced-links-2893 p-5">
-              <a class="link-secondary text-capitalize advanced-item-2389" href="#">MORE INFORMATION</a> |
-              <a class="link-secondary text-capitalize advanced-item-2389" href="#">FEEDBACK</a> |
-              <a class="link-secondary text-capitalize advanced-item-2389" href="#">ADD QUESTION</a> |
-              <a class="link-secondary text-capitalize advanced-item-2389" href="#">IMPRINT</a> | 
-              <a class="link-secondary text-capitalize advanced-item-2389" href="#">DATA POLICY</a>
+              <a class="link-secondary text-capitalize advanced-item-2389" target="_blank" href="https://apuem.com/?id=info">MORE INFORMATION</a> |
+              <a class="link-secondary text-capitalize advanced-item-2389" target="_blank" href="https://apuem.com/?id=report">REPORT</a> |
+              <a class="link-secondary text-capitalize advanced-item-2389" target="_blank" href="https://apuem.com/?id=add">ADD QUESTION</a> |
+              <a class="link-secondary text-capitalize advanced-item-2389" target="_blank" href="https://apuem.com/?id=imprint">IMPRINT</a> | 
+              <a class="link-secondary text-capitalize advanced-item-2389" target="_blank" href="https://apuem.com/?id=policy">DATA POLICY</a>
             </div>
           </div>
         </div>
