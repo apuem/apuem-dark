@@ -23,16 +23,23 @@
         <p class="ue-p1 user-select-none poppins-font">apuem</p>
     </div>
     <div class="position-absolute bottom-0 start-50 translate-middle-x">
-        <p class="ue-p1 user-select-none poppins-font" id="date">[date]</p>
+        <p class="ue-p1 user-select-none poppins-font" id="date"><!-- [date] --></p>
     </div>
     <div class="offcanvas offcanvas-bottom" style="height: 60%; color: white;" tabindex="-1" id="offcanvasCookies" aria-labelledby="offcanvasCookiesLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasCookiesLabel"><i class="bi bi-check-circle"></i> Sucess</h5>
+            <h5 class="offcanvas-title" id="offcanvasCookiesLabel"><i class="bi bi-app-indicator"></i> Before you continue: Accept our Cookies</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body small">
-            <p class="p-2">Thank you, everything worked well. You can close this page now.</p>
-            <button type="button" onclick="cookieConfirm('false')" class="btn btn-secondary">Close</button>
+            <p class="p-2">To use this web application we need your allowance to save quiz data (see below) locally on your machine.</p>
+            <ul class="m-2">
+                <li>Amount of answered questions</li>
+                <li>Amount of right answered questions</li>
+                <li>Question-Id of answered questions</li>
+                <li>Most current question</li>
+                <li>Your point score</li>
+            </ul>
+            <button type="button" onclick="cookieConfirm('false')" class="btn btn-secondary my-4">Close</button>
             <button type="button" onclick="cookieConfirm('true')" class="btn btn-primary">Understand</button>
         </div>
     </div>
@@ -48,7 +55,7 @@
                 Cookies.set('history', historyArray.toString());
                 window.location.href  = "../";
             } else {
-                alert("Ohne Zustimmung ist die Webseite nicht funktionsfähig.");
+                alert("Without your acceptance this wep app won't work and you will be send back. \n Please note: To use ask.apuem you will need to accept the cookies. Thank you!");
                 window.location.href  = "https://apuem.com";
             }
         }
